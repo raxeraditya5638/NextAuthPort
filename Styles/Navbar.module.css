@@ -1,0 +1,48 @@
+
+
+#Left {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-variant: small-caps;
+}
+
+#Right ul li button{
+    padding: 10px 25px;
+    font-size: 1.7vw;
+    border-radius: 20px;
+    margin-left: 1.5rem;
+    border: 0.5px solid rgb(17 24 39);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-variant: small-caps;
+    transition: all ease 0.3s;
+}
+
+#Right ul li:hover button::after {
+    bottom: 0;
+}
+
+#Right ul li:hover button{
+    z-index: 9;
+    color: white;
+}
+
+#Right ul li button::after{
+    content: "";
+    background-color: rgb(0, 0, 0);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    z-index: -1;
+    transition: all ease 0.3s;
+}
+
+
+
+
+
+@media (max-width:732px) {
+    
+}
