@@ -59,6 +59,25 @@ const Navbar = () => {
                 </button>
               </li>
               <li>
+                <button>
+                  {session ? (
+                    <Link
+                      href={"/dashboard"}
+                      className="rounded-xl text-white hover:underline"
+                    >
+                      Dashboard
+                    </Link>
+                  ) : (
+                    <Link
+                      href={"/register"}
+                      className="rounded-xl text-white hover:underline"
+                    >
+                      Register
+                    </Link>
+                  )}
+                </button>
+              </li>
+              <li>
                 {session ? (
                   <button>
                     <Link
@@ -128,10 +147,13 @@ const Navbar = () => {
                 {session ? (
                   <button onClick={toggleMenu}>
                     <Link
-                      href={"/login"}
+                      onClick={() => {
+                        signOut();
+                      }}
+                      href={"/"}
                       className="block text-black py-2 px-4"
                     >
-                      Login
+                      Logout
                     </Link>
                   </button>
                 ) : (
@@ -144,7 +166,29 @@ const Navbar = () => {
                     </Link>
                   </button>
                 )}
+                <div className="dasboard">
+                  {session ? (
+                    <button onClick={toggleMenu}>
+                      <Link
+                        className="block text-black py-2 px-4"
+                        href={"/dashboard"}
+                      >
+                        Dashboard
+                      </Link>
+                    </button>
+                  ) : (
+                    <button onClick={toggleMenu}>
+                      <Link
+                        className="block text-black py-2 px-4"
+                        href={"/login"}
+                      >
+                        Please Login
+                      </Link>
+                    </button>
+                  )}
+                </div>
               </div>
+
               <div className="btn">
                 <button onClick={toggleMenu} className="py-3 px-5 text-4xl">
                   ×
