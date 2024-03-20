@@ -22,7 +22,7 @@ export default function RegisterForm() {
     const baseuri = process.env.baseuri;
 
     try {
-      const resUserExists = await fetch(`${baseuri}/api/userexists`, {
+      const resUserExists = await fetch("/api/userexists", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export default function RegisterForm() {
         return;
       }
 
-      const res = await fetch(`${baseuri}/api/register`, {
+      const res = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,6 +56,9 @@ export default function RegisterForm() {
       } else {
         console.log("User registration failed.");
       }
+      if (res.error) {
+        console.log("error");
+      }
     } catch (error) {
       console.log("Error during registration: ", error);
     }
@@ -66,7 +69,7 @@ export default function RegisterForm() {
       <div className="shadow-lg p-5 rounded-lg border-t-4 border-green-400">
         <h1 className="text-xl font-bold my-4">Register</h1>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 lowercase">
           <input
             onChange={(e) => setName(e.target.value)}
             type="text"
