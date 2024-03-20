@@ -37,7 +37,7 @@ export default function RegisterForm() {
         return;
       }
 
-      const res = await fetch(`${baseuri}api/register`, {
+      const res = await fetch(`${baseuri}/api/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
